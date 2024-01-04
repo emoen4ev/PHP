@@ -15,23 +15,25 @@
     </style>
 </head>
 <body>
+
+    <h1>Recommended Books</h1>
+
     <?php
-        $name = "Dark Matter!";
-        $read = false;
-
-        if ($read){
-            $message = "You have read $name";
-        } else {
-            $message = "You have NOT read $name";
-        }
-
+        $books = [
+            "Do Androids Dream of Electric Sheep",
+            "The Langoliers",
+            "Hail Mary"
+        ];
     ?>
 
-    <h1>
-        <!-- <?php echo $message; ?> -->
-        <?= $message; ?>
-
-    </h1>
+    <ul>
+        <?php
+            foreach ($books as $book)
+            {
+                echo "<li>{$book}™</li>";
+            }
+        ?>
+    </ul>
 
 </body>
 </html>
