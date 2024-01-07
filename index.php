@@ -38,21 +38,9 @@
 
         ];
 
-        function filter ($items, $fn) : array
-        {
-            $filteredItems = [];
-
-            foreach ($items as $item) {
-                if ($fn($item)) {
-                    $filteredItems[] = $item;
-                }
-            }
-            return $filteredItems;
-        };
-
-        $filteredBooks = filter($books, function ($book) {
-            return $book['releaseYear'] < 2000;
-        })
+        $filteredBooks = array_filter($books, function ($book) {
+            return $book['releaseYear'] >= 2000;
+        });
 
     ?>
 
