@@ -3,25 +3,14 @@
 // use JetBrains\PhpStorm\NoReturn;
 
 require 'functions.php';
-// require 'router.php';
 
-// connect to our MySQL database
+require 'Database.php';
 
-$dsn = "mysql:host=localhost;port = 3306;dbname=myapp;user=root;charset=utf8mb4";
+$db = new Database();
+$posts = $db->query("select * from posts")->fetchAll(PDO::FETCH_ASSOC);
 
-$pdo = new PDO($dsn);
+dd($posts);
 
-$statement = $pdo->prepare("SELECT * FROM posts ");
-
-$statement->execute();
-
-$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-// dd($posts);
-
-foreach ($posts as $post) {
-    echo "<li>" . $post['title'] . "</li>";
-}
 
 //class Person
 //{
@@ -30,7 +19,7 @@ foreach ($posts as $post) {
 //
 //    public function breathe()
 //    {
-//        echo $this->name.' is breathing!';
+//        echo $this->name . ' is breathing!';
 //    }
 //}
 //
